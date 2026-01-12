@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div style="padding:30px; max-width: 600px; margin: auto;">
+        <h2>Welcome, Student 👋</h2>
+        <p>AdmNo: <b id="AdmNoDisplay">Loading...</b></p>
+
+        <ul>
+            <li><a href="index.html">📄 View Notices</a></li>
+            <li><a href="registered-pathways.html">📘 Registered pathways</a></li>
+            <li><a href="fees.html">💰 Fees Statement</a></li>
+            <li><a href="timetable.html">📝 Exam Timetable</a></li>
+        </ul>
+
+        <br />
+        <a href="index.html">⬅ Logout</a>
+    </div>
+
+    <script>
+        // Get regNo from URL query string
+        const params = new URLSearchParams(window.location.search);
+        const AdmNo = params.get('AdmNo') || 'Unknown';
+
+        // Display regNo in the page
+        document.getElementById('AdmNoDisplay').textContent = AdmNo;
+    </script>
+</body>
+</html>

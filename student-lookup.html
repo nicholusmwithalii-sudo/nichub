@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Details Lookup | My University</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #0a4fb3;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #083a82;
+    }
+    #studentDetails {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Details Lookup</h2>
+
+  <form id="studentLookupForm" onsubmit="showStudentDetails(event)">
+    <label for="admNoInput">Admission Number</label>
+    <input type="text" id="admNoInput" placeholder="Enter Admission Number" required />
+    <button type="submit">Lookup</button>
+  </form>
+
+  <div id="studentDetails"></div>
+
+  <script>
+    const students = {
+      "A12345": {
+        name: "John Mwangi",
+        classYear: "Form 3, 2025",
+        subjects: ["Mathematics", "Biology", "Chemistry"]
+      },
+      "B67890": {
+        name: "Jane Wanjiru",
+        classYear: "Form 4, 2025",
+        subjects: ["Physics", "English", "History"]
+      },
+      "C11223": {
+        name: "Michael Otieno",
+        classYear: "Form 2, 2025",
+        subjects: ["Geography", "Economics", "Agriculture"]
+      }
+      // Add more student records as needed
+    };
+
+    function showStudentDetails(event) {
+      event.preventDefault();
+      const admNo = document.getElementById('admNoInput').value.trim().toUpperCase();
+      const detailsDiv = document.getElementById('studentDetails');
+
+      if (students[admNo]) {
+        const student = students[admNo];
+        detailsDiv.innerHTML = `
+          <h3>Student Details</h3>
+          <p><strong>Name:</strong> ${student.name}</p>
+          <p><strong>Class/Year:</strong> ${student.classYear}</p>
+          <p><strong>Subjects:</strong> ${student.subjects.join(", ")}</p>
+        `;
+      } else {
+        detailsDiv.innerHTML = '<p style="color:red;">Admission Number not found.</p>';
+      }
+    }
+  </script>
+
+</body>
+</html>

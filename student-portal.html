@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Portal | Myseniour</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // stop form submitting
+
+            const AdmNo = document.getElementById('AdmNo').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorDiv = document.getElementById('error');
+
+            errorDiv.textContent = '';
+
+            if (!AdmNo || !password) {
+                errorDiv.textContent = 'Please fill in both Registration Number and Password.';
+                return false;
+            }
+
+            // Example AdmNo format: XXXX/2024 (4 digits slash 4 digits)
+            const AdmNoPattern = /^\d{4}\/\d{4}$/;
+            if (!AdmNoPattern.test(AdmNo)) {
+                errorDiv.textContent = 'AdmNo format should be like 1234/2024.';
+                return false;
+            }
+
+            // If all good, redirect to dashboard (simulate login success)
+            window.location.href = 'student-dashboard.html?AdmNo=' + encodeURIComponent(AdmNo);
+        }
+    </script>
+</head>
+<body>
+    <div style="max-width:400px; margin:60px auto; background:white; padding:25px; border-radius:6px;">
+        <h2 style="text-align:center;">Student Portal Login</h2>
+
+        <form onsubmit="validateForm(event)">
+            <label>AdminNo</label>
+            <input
+                id="AdmNo"
+                type="text"
+                placeholder="e.g. 1234/2024"
+                required
+                style="width:100%; padding:10px; margin:8px 0;"
+            />
+
+            <label>Password</label>
+            <input
+                id="password"
+                type="password"
+                required
+                style="width:100%; padding:10px; margin:8px 0;"
+            />
+
+            <div id="error" style="color:red; margin-bottom:10px;"></div>
+
+            <button
+                type="submit"
+                style="width:100%; padding:10px; background:#0a4fb3; color:white; border:none;"
+            >
+                Login
+            </button>
+        </form>
+    </div>
+</body>
+</html>

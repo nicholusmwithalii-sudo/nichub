@@ -1,0 +1,74 @@
+hbody {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Top Bar */
+.top-bar {
+    background: #0b5ed7;
+    color: white;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/* Navbar */
+.navbar {
+    background: #0a4fb3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.apply {
+    background: #28a745;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+/* Banner */
+.banner {
+    background: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1") center/cover;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.banner h1 {
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+}
+
+/* Notices */
+.notices {
+    padding: 20px;
+}
+
+.notice {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
